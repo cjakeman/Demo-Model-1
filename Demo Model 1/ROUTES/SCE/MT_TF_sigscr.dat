@@ -1,0 +1,492 @@
+///////////////////////////////////////////////////////////////////////////////
+// Signal Type Logic Scripts
+//
+
+// *****************************************************************************
+// These Signal Scripts have been produced by Tony Formoso of J.A. Formoso Ltd.
+// for Making Tracks use only
+//******************************************************************************
+
+
+///////////////////////////////////////////////////////////////////////////////
+SCRIPT RI-Feather
+extern float route_set ();extern float this_sig_lr ();extern float draw_state;extern float state;extern float sig_feature();if (!route_set()){draw_state = 0;state = 0;}else{state = (1 + (2 * sig_feature(8)) + (4 * sig_feature(9)) );if (this_sig_lr (0) <=# 1) 
+{draw_state = 0;}else{draw_state = 1;}}
+
+SCRIPT UK_4_ASPECT
+extern float block_state ();
+extern float route_set ();
+extern float this_sig_lr ();
+extern float next_sig_lr ();
+extern float def_draw_state ();
+extern float state;
+extern float draw_state;
+extern float enabled;
+extern float sig_feature();
+float a_1646140399;
+
+float a_682999317;
+float a_79943102;
+float a_859913913;
+float a_1153970437;
+a_682999317 = sig_feature (4);
+a_1153970437 = sig_feature (7);
+a_79943102 = sig_feature (8);
+a_859913913 = sig_feature (9);
+if (this_sig_lr (3) ># 0)
+{
+state = 1;
+}
+else if (((!enabled) && (!a_682999317)) || 
+(block_state() !=# 0) ||(!route_set()))
+{
+if (block_state() != BLOCK_JN_OBSTRUCTED && TrainHasCallOn_Restricted())
+{
+state = 2;
+}
+else
+{
+state = 0;
+}
+}
+else
+{
+a_1646140399 = next_sig_lr (0);
+if ( (this_sig_lr (4) ># 0) &&( (a_79943102) || (a_859913913) ) )
+{
+state = 2;
+}
+else if (a_1646140399 <=# 1)
+{
+state = 3;
+}
+else if (a_1646140399 ==# 2)
+{
+if (next_sig_lr (4) ==# 7) 
+
+{
+state = 4;
+}
+else if (next_sig_lr (4) ==# 5)
+{
+state = 5;
+}
+else
+{
+state = 3;
+}
+}
+else if ((a_1646140399 ==# 3) ||(a_1646140399 ==# 4))
+{
+state = 5;
+}
+else if (a_1646140399 ==# 5)
+{
+state = 6;
+}
+else if (a_1646140399 >=# 6)
+{
+if ((a_1153970437))
+{
+state = 7;
+}
+else
+{
+state = 6;
+ 
+}
+}
+}
+draw_state = def_draw_state (state);
+if (state ==# 2)
+{
+if ( (a_79943102) && (!a_859913913) )
+{
+if (a_1646140399 <=# 1)
+{
+draw_state = 1;
+}
+else if (a_1646140399 <=# 4)
+{
+draw_state = 3;
+}
+else
+{
+draw_state = 5;
+}
+}
+}
+else if ((a_1646140399 ==# 4) &&(state ==# 5)) 
+
+{
+draw_state = 4;
+}
+
+SCRIPT UK_3_ASPECT
+extern float block_state ();
+extern float route_set ();
+extern float this_sig_lr ();
+extern float next_sig_lr ();
+extern float def_draw_state ();
+extern float state;
+extern float draw_state;
+extern float enabled;
+extern float sig_feature();
+float a_1646140399;
+
+float a_682999317;
+float a_79943102;
+float a_859913913;
+a_682999317 = sig_feature (4);
+a_79943102 = sig_feature (8);
+a_859913913 = sig_feature (9);
+if (this_sig_lr (3) ># 0)
+{
+	state = 1;
+}
+else if (((!enabled) && (!a_682999317)) ||(block_state() !=# 0) || 
+(!route_set()))
+{
+if (block_state() != BLOCK_JN_OBSTRUCTED && TrainHasCallOn_Restricted())
+{
+	state = 2;
+}
+else
+{
+	state = 0;
+}
+}
+else
+{
+a_1646140399 = next_sig_lr (0);
+if ( (this_sig_lr (4) ># 0) &&( (a_79943102) || (a_859913913) ) )
+{
+state = 2;
+}
+else if (a_1646140399 <=# 1)
+{
+state = 3;
+}
+else if (a_1646140399 ==# 2)
+{
+if (next_sig_lr (4) ==# 7)
+{
+state = 4;
+ 
+}
+else if (next_sig_lr (4) ==# 5)
+{
+state = 6;
+}
+else
+{
+state = 3;
+}
+}else if (a_1646140399 >=# 3)
+{
+state = 6;
+}
+}
+draw_state = def_draw_state (state);
+if (state ==# 2)
+{
+if ( (a_79943102) && (!a_859913913) )
+{
+if (a_1646140399 <=# 1)
+{
+draw_state = 1;
+}
+else
+{
+draw_state = 3;
+ 
+}
+}
+}
+
+SCRIPT UK_3_ASPECT_MIN
+extern float block_state ();
+extern float route_set ();
+extern float next_sig_lr ();
+extern float def_draw_state ();
+extern float state;
+extern float draw_state;
+extern float enabled;
+extern float sig_feature();
+float a_1646140399;
+float a_682999317;
+a_682999317 = sig_feature (4);
+
+if (((!enabled) && (!a_682999317)) ||(block_state() !=# 0) ||(!route_set()))
+{
+if (block_state() != BLOCK_JN_OBSTRUCTED && TrainHasCallOn_Restricted())
+{
+state = 2;
+}
+else
+{
+state = 0;
+}
+}
+else
+{
+a_1646140399 = next_sig_lr (0);
+if (a_1646140399 <=# 1)
+{
+state = 3;
+}
+else if (a_1646140399 ==# 2)
+{
+if (next_sig_lr (4) ==# 7)
+{
+state = 3;
+}
+else if (next_sig_lr (4) ==# 5) 
+
+{
+state = 6;
+}
+else
+{
+state = 3;
+}
+}
+else if (a_1646140399 >=# 3)
+{
+state = 6;
+}
+}
+draw_state = def_draw_state (state);
+
+SCRIPT UK_2_ASPECT
+extern float block_state ();
+extern float route_set ();
+extern float this_sig_lr ();
+extern float def_draw_state ();
+extern float state;
+extern float draw_state;
+extern float enabled;
+extern float sig_feature();
+float a_1646140399;
+float a_682999317;
+a_682999317 = sig_feature (4);
+
+if (this_sig_lr (3) ># 0)
+{
+state = 1;
+}
+else if (((!enabled) && (!a_682999317)) ||(block_state() !=# 0) ||(!route_set()))
+{
+state = 0;
+}
+else
+{
+state = 6;
+}
+draw_state = def_draw_state (state);
+
+SCRIPT UK_2_Aspect_Distant
+extern float route_set ();
+extern float def_draw_state ();
+extern float next_sig_lr ();
+extern float dist_multi_sig_mr ();
+extern float state;
+extern float draw_state;
+if ( (!route_set()) ||(dist_multi_sig_mr (0, 1) <# 6) ||(next_sig_lr (4) ># 0))
+{
+state = 3;
+
+}
+else
+{
+state = 6;
+}
+draw_state = def_draw_state (state);
+
+SCRIPT UK_SEARCHLIGHT_4_ASPECT
+extern float block_state ();extern float route_set ();extern float next_sig_lr ();extern float def_draw_state ();extern float state;extern float draw_state;extern float enabled;extern float sig_feature();float a_1442828103;float a_2069969521;a_2069969521 = sig_feature (4);
+if (((!enabled) && (!a_2069969521)) ||(block_state() !=# 0) ||(!route_set())){state = 0;}else{a_1442828103 = next_sig_lr (0);if (a_1442828103 <=# 1){state = 3;}else if (a_1442828103 <=# 4){state = 5;}else if (a_1442828103 >=# 5){state = 6;}}
+draw_state = def_draw_state (state);
+SCRIPT UK_SEARCHLIGHT_3_ASPECT
+extern float block_state ();extern float route_set ();extern float next_sig_lr ();extern float def_draw_state ();extern float state;extern float draw_state;extern float enabled;extern float sig_feature();float a_1442828103;float a_2069969521;a_2069969521 = sig_feature (4);
+if (((!enabled) && (!a_2069969521)) ||(block_state() !=# 0) ||(!route_set())){state = 0;}else{a_1442828103 = next_sig_lr (0);if (a_1442828103 <=# 1){state = 3;}else if (a_1442828103 >=# 3){state = 6;}}draw_state = def_draw_state (state);
+SCRIPT UK_Ground_Signal
+extern float block_state ();extern float route_set ();extern float def_draw_state ();extern float sig_feature();extern float state;extern float draw_state;float a_46085181;float a_161056657;a_46085181 = sig_feature (6);a_161056657 = sig_feature (7);
+if (block_state() !=# 0 ||!route_set()){if (a_46085181){state = 1;}else{state = 0;}}else{state = 2;}draw_state = def_draw_state (state);if ( (state ==# 0) && (a_161056657) ){draw_state = 1;}
+SCRIPT UK_Ground_Signal_NORMAL
+extern float block_state ();extern float route_set ();extern float def_draw_state ();extern float sig_feature();extern float enabled;extern float state;extern float draw_state;float a_46085181;float a_161056657;a_46085181 = sig_feature (6);a_161056657 = sig_feature (7);
+if ( (!enabled) ||(block_state() !=# 0) ||(!route_set())){if (a_46085181){state = 1;}else{state = 0;}}else{state = 2;}draw_state = def_draw_state (state);if ( (state ==# 0) && (a_161056657) ){draw_state = 1;}
+SCRIPT UK_Attached_Shunt_Signal
+extern float block_state ();extern float route_set ();extern float def_draw_state ();extern float enabled;extern float state;extern float draw_state;if ( (!enabled) ||(!route_set()) ){state = 0;}else{{state = 2;}}draw_state = def_draw_state (state);
+SCRIPT Banner_Repeater_Home
+extern float next_sig_lr ();extern float draw_state;if (next_sig_lr (0) <=# 1){draw_state = 0;}else{ draw_state = 1;}
+SCRIPT RA-OFF-Indicator
+extern float next_sig_lr ();extern float draw_state;extern float sig_feature ();if (next_sig_lr (0) <=# 1){draw_state = 0;}else{ if (sig_feature (6)){draw_state = 2;}else{draw_state = 1;}}
+SCRIPT Theatre-BAY
+extern float route_set ();extern float next_sig_lr ();extern float draw_state;extern float sig_feature ();float a_1442828103;float a_216829329;a_216829329 = sig_feature (6);if (a_216829329){a_1442828103 = next_sig_lr (3);}else{a_1442828103 = next_sig_lr (0);
+}if (a_1442828103 <=# 1 ||!route_set()){draw_state = 0;}else{ draw_state = 1;}
+SCRIPT Theatre-DM
+extern float route_set ();extern float next_sig_lr ();extern float draw_state;extern float sig_feature ();float a_1442828103;float a_216829329;a_216829329 = sig_feature (6);if (a_216829329){a_1442828103 = next_sig_lr (3);}else{a_1442828103 = next_sig_lr (0);
+}if (a_1442828103 <=# 1 ||!route_set()){draw_state = 0;}else{ draw_state = 1;}
+SCRIPT Theatre-DS
+extern float route_set ();extern float next_sig_lr ();extern float draw_state;extern float sig_feature ();float a_1442828103;float a_216829329;a_216829329 = sig_feature (6);if (a_216829329){a_1442828103 = next_sig_lr (3);}else{a_1442828103 = next_sig_lr (0);
+}if (a_1442828103 <=# 1 ||!route_set()){draw_state = 0;}else{ draw_state = 1;}
+SCRIPT Theatre-DF
+extern float route_set ();extern float next_sig_lr ();extern float draw_state;extern float sig_feature ();float a_1442828103;float a_216829329;a_216829329 = sig_feature (6);if (a_216829329){a_1442828103 = next_sig_lr (3);}else{a_1442828103 = next_sig_lr (0);
+}if (a_1442828103 <=# 1 ||!route_set()){draw_state = 0;}else{ draw_state = 1;}
+SCRIPT Theatre-UM
+extern float route_set ();extern float next_sig_lr ();extern float draw_state;extern float sig_feature ();float a_1442828103;float a_216829329;a_216829329 = sig_feature (6);if (a_216829329){a_1442828103 = next_sig_lr (3);}else{a_1442828103 = next_sig_lr (0);
+}if (a_1442828103 <=# 1 ||!route_set()){draw_state = 0;}else{ draw_state = 1;}
+SCRIPT Theatre-US
+extern float route_set ();extern float next_sig_lr ();extern float draw_state;extern float sig_feature ();float a_1442828103;float a_216829329;a_216829329 = sig_feature (6);if (a_216829329){a_1442828103 = next_sig_lr (3);}else{a_1442828103 = next_sig_lr (0);
+}if (a_1442828103 <=# 1 ||!route_set()){draw_state = 0;}else{ draw_state = 1;}
+SCRIPT Theatre-UF
+extern float route_set ();extern float next_sig_lr ();extern float draw_state;extern float sig_feature ();float a_1442828103;float a_216829329;a_216829329 = sig_feature (6);if (a_216829329){a_1442828103 = next_sig_lr (3);}else{a_1442828103 = next_sig_lr (0);
+}if (a_1442828103 <=# 1 ||!route_set()){draw_state = 0;}else{ draw_state = 1;}
+SCRIPT Theatre-1
+extern float route_set ();extern float next_sig_lr ();extern float draw_state;extern float sig_feature ();float a_1442828103;float a_216829329;a_216829329 = sig_feature (6);if (a_216829329){a_1442828103 = next_sig_lr (3);}else{a_1442828103 = next_sig_lr (0);
+}if (a_1442828103 <=# 1 ||!route_set()){draw_state = 0;}else{ draw_state = 1;}
+SCRIPT Theatre-2
+extern float route_set ();extern float next_sig_lr ();extern float draw_state;extern float sig_feature ();float a_1442828103;float a_216829329;a_216829329 = sig_feature (6);if (a_216829329){a_1442828103 = next_sig_lr (3);}else{a_1442828103 = next_sig_lr (0);
+}if (a_1442828103 <=# 1 ||!route_set()){draw_state = 0;}else{ draw_state = 1;}
+SCRIPT Theatre-3
+extern float route_set ();extern float next_sig_lr ();extern float draw_state;extern float sig_feature ();float a_1442828103;float a_216829329;a_216829329 = sig_feature (6);if (a_216829329){a_1442828103 = next_sig_lr (3);}else{a_1442828103 = next_sig_lr (0);
+}if (a_1442828103 <=# 1 ||!route_set()){draw_state = 0;}else{ draw_state = 1;}
+SCRIPT Theatre-SQ-1
+extern float route_set ();extern float next_sig_lr ();extern float state;extern float draw_state;extern float sig_feature ();float a_1646140399;float a_787084440;a_787084440 = sig_feature (6);if (a_787084440){a_1646140399 = next_sig_lr (3);}else{
+a_1646140399 = next_sig_lr (0);}if (a_1646140399 <=# 1 ||!route_set()){draw_state = 0;}else{ draw_state = 1;}state = next_sig_lr (4);
+SCRIPT Theatre-SQ-2
+extern float route_set ();extern float next_sig_lr ();extern float state;extern float draw_state;extern float sig_feature ();float a_1646140399;float a_787084440;a_787084440 = sig_feature (6);if (a_787084440){a_1646140399 = next_sig_lr (3);}else{
+a_1646140399 = next_sig_lr (0);}if (a_1646140399 <=# 1 ||!route_set()){draw_state = 0;}else{ draw_state = 1;}state = next_sig_lr (4);
+SCRIPT Theatre-SQ-3
+extern float route_set ();extern float next_sig_lr ();extern float state;extern float draw_state;extern float sig_feature ();float a_1646140399;float a_787084440;a_787084440 = sig_feature (6);if (a_787084440){a_1646140399 = next_sig_lr (3);}else{
+a_1646140399 = next_sig_lr (0);}if (a_1646140399 <=# 1 ||!route_set()){draw_state = 0;}else{ draw_state = 1;}state = next_sig_lr (4);
+SCRIPT Theatre-SQ-4
+extern float route_set ();extern float next_sig_lr ();extern float state;extern float draw_state;extern float sig_feature ();float a_1646140399;float a_787084440;a_787084440 = sig_feature (6);if (a_787084440){a_1646140399 = next_sig_lr (3);}else{
+a_1646140399 = next_sig_lr (0);}if (a_1646140399 <=# 1 ||!route_set()){draw_state = 0;}else{ draw_state = 1;}state = next_sig_lr (4);
+SCRIPT Theatre-SQ-5
+extern float route_set ();extern float next_sig_lr ();extern float state;extern float draw_state;extern float sig_feature ();float a_1646140399;float a_787084440;a_787084440 = sig_feature (6);if (a_787084440){a_1646140399 = next_sig_lr (3);}else{
+a_1646140399 = next_sig_lr (0);}if (a_1646140399 <=# 1 ||!route_set()){draw_state = 0;}else{ draw_state = 1;}state = next_sig_lr (4);
+SCRIPT Theatre-SQ-6
+extern float route_set ();extern float next_sig_lr ();extern float state;extern float draw_state;extern float sig_feature ();float a_1646140399;float a_787084440;a_787084440 = sig_feature (6);if (a_787084440){a_1646140399 = next_sig_lr (3);}else{
+a_1646140399 = next_sig_lr (0);}if (a_1646140399 <=# 1 ||!route_set()){draw_state = 0;}else{ draw_state = 1;}state = next_sig_lr (4);
+SCRIPT Theatre-SQ-7
+extern float route_set ();extern float next_sig_lr ();extern float state;extern float draw_state;extern float sig_feature ();float a_1646140399;float a_787084440;a_787084440 = sig_feature (6);if (a_787084440){a_1646140399 = next_sig_lr (3);}else{
+a_1646140399 = next_sig_lr (0);}if (a_1646140399 <=# 1 ||!route_set()){draw_state = 0;}else{ draw_state = 1;}state = next_sig_lr (4);
+SCRIPT Theatre-SQ-8
+extern float route_set ();extern float next_sig_lr ();extern float state;extern float draw_state;extern float sig_feature ();float a_1646140399;float a_787084440;a_787084440 = sig_feature (6);if (a_787084440){a_1646140399 = next_sig_lr (3);}else{
+a_1646140399 = next_sig_lr (0);}if (a_1646140399 <=# 1 ||!route_set()){draw_state = 0;}else{ draw_state = 1;}state = next_sig_lr (4);
+SCRIPT Theatre-SQ-9
+extern float route_set ();extern float next_sig_lr ();extern float state;extern float draw_state;extern float sig_feature ();float a_1646140399;float a_787084440;a_787084440 = sig_feature (6);if (a_787084440){a_1646140399 = next_sig_lr (3);}else{
+a_1646140399 = next_sig_lr (0);}if (a_1646140399 <=# 1 ||!route_set()){draw_state = 0;}else{ draw_state = 1;}state = next_sig_lr (4);
+SCRIPT Theatre-SQ-10
+extern float route_set ();extern float next_sig_lr ();extern float state;extern float draw_state;extern float sig_feature ();float a_1646140399;float a_787084440;a_787084440 = sig_feature (6);if (a_787084440){a_1646140399 = next_sig_lr (3);}else{
+a_1646140399 = next_sig_lr (0);}if (a_1646140399 <=# 1 ||!route_set()){draw_state = 0;}else{ draw_state = 1;}state = next_sig_lr (4);
+SCRIPT Theatre-SQ-11
+extern float route_set ();extern float next_sig_lr ();extern float state;extern float draw_state;extern float sig_feature ();float a_1646140399;float a_787084440;a_787084440 = sig_feature (6);if (a_787084440){a_1646140399 = next_sig_lr (3);}else{
+a_1646140399 = next_sig_lr (0);}if (a_1646140399 <=# 1 ||!route_set()){draw_state = 0;}else{ draw_state = 1;}state = next_sig_lr (4);
+SCRIPT Theatre-SQ-12
+extern float route_set ();extern float next_sig_lr ();extern float state;extern float draw_state;extern float sig_feature ();float a_1646140399;float a_787084440;a_787084440 = sig_feature (6);if (a_787084440){a_1646140399 = next_sig_lr (3);}else{
+a_1646140399 = next_sig_lr (0);}if (a_1646140399 <=# 1 ||!route_set()){draw_state = 0;}else{ draw_state = 1;}state = next_sig_lr (4);
+SCRIPT Theatre-SQ-13
+extern float route_set ();extern float next_sig_lr ();extern float state;extern float draw_state;extern float sig_feature ();float a_1646140399;float a_787084440;a_787084440 = sig_feature (6);if (a_787084440){a_1646140399 = next_sig_lr (3);}else{
+a_1646140399 = next_sig_lr (0);}if (a_1646140399 <=# 1 ||!route_set()){draw_state = 0;}else{ draw_state = 1;}state = next_sig_lr (4);
+SCRIPT Theatre-SQ-14
+extern float route_set ();extern float next_sig_lr ();extern float state;extern float draw_state;extern float sig_feature ();float a_1646140399;float a_787084440;a_787084440 = sig_feature (6);if (a_787084440){a_1646140399 = next_sig_lr (3);}else{
+a_1646140399 = next_sig_lr (0);}if (a_1646140399 <=# 1 ||!route_set()){draw_state = 0;}else{ draw_state = 1;}state = next_sig_lr (4);
+SCRIPT Theatre-SQ-15
+extern float route_set ();extern float next_sig_lr ();extern float state;extern float draw_state;extern float sig_feature ();float a_1646140399;float a_787084440;a_787084440 = sig_feature (6);if (a_787084440){a_1646140399 = next_sig_lr (3);}else{
+a_1646140399 = next_sig_lr (0);}if (a_1646140399 <=# 1 ||!route_set()){draw_state = 0;}else{ draw_state = 1;}state = next_sig_lr (4);
+SCRIPT Theatre-SQ-16
+extern float route_set ();extern float next_sig_lr ();extern float state;extern float draw_state;extern float sig_feature ();float a_1646140399;float a_787084440;a_787084440 = sig_feature (6);if (a_787084440){a_1646140399 = next_sig_lr (3);}else{
+a_1646140399 = next_sig_lr (0);}if (a_1646140399 <=# 1 ||!route_set()){draw_state = 0;}else{ draw_state = 1;}state = next_sig_lr (4);
+SCRIPT Theatre-SQ-17
+extern float route_set ();extern float next_sig_lr ();extern float state;extern float draw_state;extern float sig_feature ();float a_1646140399;float a_787084440;a_787084440 = sig_feature (6);if (a_787084440){a_1646140399 = next_sig_lr (3);}else{
+a_1646140399 = next_sig_lr (0);}if (a_1646140399 <=# 1 ||!route_set()){draw_state = 0;}else{ draw_state = 1;}state = next_sig_lr (4);
+SCRIPT Theatre-SQ-18
+extern float route_set ();extern float next_sig_lr ();extern float state;extern float draw_state;extern float sig_feature ();float a_1646140399;float a_787084440;a_787084440 = sig_feature (6);if (a_787084440){a_1646140399 = next_sig_lr (3);}else{
+a_1646140399 = next_sig_lr (0);}if (a_1646140399 <=# 1 ||!route_set()){draw_state = 0;}else{ draw_state = 1;}state = next_sig_lr (4);
+SCRIPT Theatre-SQ-19
+extern float route_set ();extern float next_sig_lr ();extern float state;extern float draw_state;extern float sig_feature ();float a_1646140399;float a_787084440;a_787084440 = sig_feature (6);if (a_787084440){a_1646140399 = next_sig_lr (3);}else{
+a_1646140399 = next_sig_lr (0);}if (a_1646140399 <=# 1 ||!route_set()){draw_state = 0;}else{ draw_state = 1;}state = next_sig_lr (4);
+SCRIPT Theatre-SQ-A
+extern float route_set ();extern float next_sig_lr ();extern float state;extern float draw_state;extern float sig_feature ();float a_1646140399;float a_787084440;a_787084440 = sig_feature (6);if (a_787084440){a_1646140399 = next_sig_lr (3);}else{
+a_1646140399 = next_sig_lr (0);}if (a_1646140399 <=# 1 ||!route_set()){draw_state = 0;}else{ draw_state = 1;}state = next_sig_lr (4);
+SCRIPT Theatre-SQ-B
+extern float route_set ();extern float next_sig_lr ();extern float state;extern float draw_state;extern float sig_feature ();float a_1646140399;float a_787084440;a_787084440 = sig_feature (6);if (a_787084440){a_1646140399 = next_sig_lr (3);}else{
+a_1646140399 = next_sig_lr (0);}if (a_1646140399 <=# 1 ||!route_set()){draw_state = 0;}else{ draw_state = 1;}state = next_sig_lr (4);
+SCRIPT Theatre-SQ-C
+extern float route_set ();extern float next_sig_lr ();extern float state;extern float draw_state;extern float sig_feature ();float a_1646140399;float a_787084440;a_787084440 = sig_feature (6);if (a_787084440){a_1646140399 = next_sig_lr (3);}else{
+a_1646140399 = next_sig_lr (0);}if (a_1646140399 <=# 1 ||!route_set()){draw_state = 0;}else{ draw_state = 1;}state = next_sig_lr (4);
+SCRIPT Theatre-SQ-D
+extern float route_set ();extern float next_sig_lr ();extern float state;extern float draw_state;extern float sig_feature ();float a_1646140399;float a_787084440;a_787084440 = sig_feature (6);if (a_787084440){a_1646140399 = next_sig_lr (3);}else{
+a_1646140399 = next_sig_lr (0);}if (a_1646140399 <=# 1 ||!route_set()){draw_state = 0;}else{ draw_state = 1;}state = next_sig_lr (4);
+SCRIPT Theatre-SQ-E
+extern float route_set ();extern float next_sig_lr ();extern float state;extern float draw_state;extern float sig_feature ();float a_1646140399;float a_787084440;a_787084440 = sig_feature (6);if (a_787084440){a_1646140399 = next_sig_lr (3);}else{
+a_1646140399 = next_sig_lr (0);}if (a_1646140399 <=# 1 ||!route_set()){draw_state = 0;}else{ draw_state = 1;}state = next_sig_lr (4);
+SCRIPT Theatre-SQ-F
+extern float route_set ();extern float next_sig_lr ();extern float state;extern float draw_state;extern float sig_feature ();float a_1646140399;float a_787084440;a_787084440 = sig_feature (6);if (a_787084440){a_1646140399 = next_sig_lr (3);}else{
+a_1646140399 = next_sig_lr (0);}if (a_1646140399 <=# 1 ||!route_set()){draw_state = 0;}else{ draw_state = 1;}state = next_sig_lr (4);
+SCRIPT Theatre-SQ-G
+extern float route_set ();extern float next_sig_lr ();extern float state;extern float draw_state;extern float sig_feature ();float a_1646140399;float a_787084440;a_787084440 = sig_feature (6);if (a_787084440){a_1646140399 = next_sig_lr (3);}else{
+a_1646140399 = next_sig_lr (0);}if (a_1646140399 <=# 1 ||!route_set()){draw_state = 0;}else{ draw_state = 1;}state = next_sig_lr (4);
+SCRIPT Theatre-SQ-H
+extern float route_set ();extern float next_sig_lr ();extern float state;extern float draw_state;extern float sig_feature ();float a_1646140399;float a_787084440;a_787084440 = sig_feature (6);if (a_787084440){a_1646140399 = next_sig_lr (3);}else{
+a_1646140399 = next_sig_lr (0);}if (a_1646140399 <=# 1 ||!route_set()){draw_state = 0;}else{ draw_state = 1;}state = next_sig_lr (4);
+SCRIPT Theatre-SQ-L
+extern float route_set ();extern float next_sig_lr ();extern float state;extern float draw_state;extern float sig_feature ();float a_1646140399;float a_787084440;a_787084440 = sig_feature (6);if (a_787084440){a_1646140399 = next_sig_lr (3);}else{
+a_1646140399 = next_sig_lr (0);}if (a_1646140399 <=# 1 ||!route_set()){draw_state = 0;}else{ draw_state = 1;}state = next_sig_lr (4);
+SCRIPT Theatre-SQ-M
+extern float route_set ();extern float next_sig_lr ();extern float state;extern float draw_state;extern float sig_feature ();float a_1646140399;float a_787084440;a_787084440 = sig_feature (6);if (a_787084440){a_1646140399 = next_sig_lr (3);}else{
+a_1646140399 = next_sig_lr (0);}if (a_1646140399 <=# 1 ||!route_set()){draw_state = 0;}else{ draw_state = 1;}state = next_sig_lr (4);
+SCRIPT Theatre-SQ-N
+extern float route_set ();extern float next_sig_lr ();extern float state;extern float draw_state;extern float sig_feature ();float a_1646140399;float a_787084440;a_787084440 = sig_feature (6);if (a_787084440){a_1646140399 = next_sig_lr (3);}else{
+a_1646140399 = next_sig_lr (0);}if (a_1646140399 <=# 1 ||!route_set()){draw_state = 0;}else{ draw_state = 1;}state = next_sig_lr (4);
+SCRIPT Theatre-SQ-P
+extern float route_set ();extern float next_sig_lr ();extern float state;extern float draw_state;extern float sig_feature ();float a_1646140399;float a_787084440;a_787084440 = sig_feature (6);if (a_787084440){a_1646140399 = next_sig_lr (3);}else{
+a_1646140399 = next_sig_lr (0);}if (a_1646140399 <=# 1 ||!route_set()){draw_state = 0;}else{ draw_state = 1;}state = next_sig_lr (4);
+SCRIPT Theatre-SQ-S
+extern float route_set ();extern float next_sig_lr ();extern float state;extern float draw_state;extern float sig_feature ();float a_1646140399;float a_787084440;a_787084440 = sig_feature (6);if (a_787084440){a_1646140399 = next_sig_lr (3);}else{
+a_1646140399 = next_sig_lr (0);}if (a_1646140399 <=# 1 ||!route_set()){draw_state = 0;}else{ draw_state = 1;}state = next_sig_lr (4);
+SCRIPT Theatre-SQ-T
+extern float route_set ();extern float next_sig_lr ();extern float state;extern float draw_state;extern float sig_feature ();float a_1646140399;float a_787084440;a_787084440 = sig_feature (6);if (a_787084440){a_1646140399 = next_sig_lr (3);}else{
+a_1646140399 = next_sig_lr (0);}if (a_1646140399 <=# 1 ||!route_set()){draw_state = 0;}else{ draw_state = 1;}state = next_sig_lr (4);
+SCRIPT Theatre-SQ-U
+extern float route_set ();extern float next_sig_lr ();extern float state;extern float draw_state;extern float sig_feature ();float a_1646140399;float a_787084440;a_787084440 = sig_feature (6);if (a_787084440){a_1646140399 = next_sig_lr (3);}else{
+a_1646140399 = next_sig_lr (0);}if (a_1646140399 <=# 1 ||!route_set()){draw_state = 0;}else{ draw_state = 1;}state = next_sig_lr (4);
+SCRIPT Theatre-SQ-W
+extern float route_set ();extern float next_sig_lr ();extern float state;extern float draw_state;extern float sig_feature ();float a_1646140399;float a_787084440;a_787084440 = sig_feature (6);if (a_787084440){a_1646140399 = next_sig_lr (3);}else{
+a_1646140399 = next_sig_lr (0);}if (a_1646140399 <=# 1 ||!route_set()){draw_state = 0;}else{ draw_state = 1;}state = next_sig_lr (4);
+SCRIPT Theatre-SQ-X
+extern float route_set ();extern float next_sig_lr ();extern float state;extern float draw_state;extern float sig_feature ();float a_1646140399;float a_787084440;a_787084440 = sig_feature (6);if (a_787084440){a_1646140399 = next_sig_lr (3);}else{
+a_1646140399 = next_sig_lr (0);}if (a_1646140399 <=# 1 ||!route_set()){draw_state = 0;}else{ draw_state = 1;}state = next_sig_lr (4);
+SCRIPT Theatre-SQ-Y
+extern float route_set ();extern float next_sig_lr ();extern float state;extern float draw_state;extern float sig_feature ();float a_1646140399;float a_787084440;a_787084440 = sig_feature (6);if (a_787084440){a_1646140399 = next_sig_lr (3);}else{
+a_1646140399 = next_sig_lr (0);}if (a_1646140399 <=# 1 ||!route_set()){draw_state = 0;}else{ draw_state = 1;}state = next_sig_lr (4);
+SCRIPT Theatre-SQ-Z
+extern float route_set ();extern float next_sig_lr ();extern float state;extern float draw_state;extern float sig_feature ();float a_1646140399;float a_787084440;a_787084440 = sig_feature (6);if (a_787084440){a_1646140399 = next_sig_lr (3);}else{
+a_1646140399 = next_sig_lr (0);}if (a_1646140399 <=# 1 ||!route_set()){draw_state = 0;}else{ draw_state = 1;}state = next_sig_lr (4);
+
+
+SCRIPT Sem_Stop
+extern float block_state ();extern float route_set ();extern float def_draw_state ();extern float state;extern float draw_state;extern float enabled;if ((!enabled) ||(block_state() !=# 0) ||(!route_set())){state = 0;}else{state = 6;}draw_state = def_draw_state (state);
+
+SCRIPT Sem_Stop2
+extern float block_state ();extern float route_set ();extern float def_draw_state ();extern float state;extern float draw_state;extern float enabled;if ((!enabled) ||(block_state() !=# 0) ||(!route_set())){state = 0;}else{state = 6;}draw_state = def_draw_state (state);
+
+
+SCRIPT Sem_Distant
+extern float route_set ();extern float def_draw_state ();extern float dist_multi_sig_mr ();extern float state;extern float draw_state;extern float enabled;extern float this_sig_lr ();extern float next_sig_lr ();float a_253113383;a_253113383 = this_sig_lr (0); 
+if ( (!route_set()) ||(dist_multi_sig_mr (0, 1) <# 6) ||( (a_253113383 <# 6 ) && (a_253113383 >=# 0) ) ||(dist_multi_sig_mr (4, 0) ># 0) ){state = 3;}else{state = 6;}draw_state = def_draw_state (state);
+
+SCRIPT Sem_Distant2
+extern float route_set ();extern float def_draw_state ();extern float dist_multi_sig_mr ();extern float state;extern float draw_state;extern float enabled;extern float this_sig_lr ();extern float next_sig_lr ();float a_253113383;a_253113383 = this_sig_lr (0); 
+if ( (!route_set()) ||(dist_multi_sig_mr (0, 1) <# 6) ||( (a_253113383 <# 6 ) && (a_253113383 >=# 0) ) ||(dist_multi_sig_mr (4, 0) ># 0) ){state = 3;}else{state = 6;}draw_state = def_draw_state (state);
+
+SCRIPT Sem_Ground
+extern float block_state ();extern float route_set ();extern float def_draw_state ();extern float sig_feature();extern float state;extern float draw_state;float a_1741083486;a_1741083486 = sig_feature (6);if ( (a_1741083486) ||(block_state() !=# 0) || 
+(!route_set()) ){state = 0;}else{state = 2;}draw_state = def_draw_state (state);
+SCRIPT TRACKSTART
+extern float state;extern float draw_state;state = 0 ;draw_state = 0;
+SCRIPT HOMESIGNALIND
+extern float state;extern float draw_state;state = 3;draw_state = 0;
