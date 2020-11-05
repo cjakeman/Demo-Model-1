@@ -1,0 +1,3 @@
+     Sound ( "..\\..\\MT_Common.Sound\\MT_Class47\\Class47Cab01.sms" ) Cab
+     Sound ( "..\\..\\MT_Common.Sound\\MT_Class47\\Class47Eng01.sms" ) Eng
+     Sound ( "..\\..\\MT_Common.Sound\\MT_Class47\\#Class47-01.sms" ) AI
