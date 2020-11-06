@@ -1,3 +1,10 @@
+This model demonstrates the Open Rails train simulator - see [www.openrails.org](http://www.openrails.org)
+
+The model, generously donated by Making Tracks Ltd, reproduces the route between the Scottish capitals during the "blue" period of British Rail. Your service is a morning express from Edinburgh Waverley as far as the town of Linlithgow, about 20 minutes running.
+
+You can also watch a player driving the route on Open Rails [in this video](https://www.youtube.com/watch?v=aZ5aVEvbOOE&feature=youtu.be), which provides a voice-over. 
+
+
 Shield: [![CC BY-SA 4.0][cc-by-sa-shield]][cc-by-sa]
 
 This work is licensed under a
