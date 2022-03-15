@@ -23,8 +23,8 @@ If you wish to do this, contact [me](mailto://github@jakeman.plus.com/) for perm
 
 ## Installation
 
-You can [download the repository](https://github.com/cjakeman/Demo-Model-1/archive/refs/heads/main.zip) (repo) as a Zip archive and unpack it to a folder following [the instructions here](Installing%20Demo%20Model%201%20for%20Open%20Rails%20v1%200.pdf).
+You can [download the repository](https://github.com/cjakeman/Demo-Model-1/archive/refs/heads/main.zip) as a Zip archive and unpack it to a folder following [the instructions here](Installing%20Demo%20Model%201%20for%20Open%20Rails%20v1%200.pdf).
 
-We recommend instead that you use the GitHub Desktop utility to do this for you. 
-After a simple set up, GitHub Desktop will notify you of any enhancements and install them at the push of a button.
+However we recommend that you use the GitHub Desktop utility to do this for you. 
+Once set up, GitHub Desktop will notify you of any enhancements and install them at the push of a button.
 Please follow [these instructions](https://www.dropbox.com/s/5p2jbgdtdpa380a/Using%20routes%20published%20on%20GitHub%20v1.pdf?dl=0).
